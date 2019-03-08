@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ContentChild, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'layout-builder',
@@ -8,6 +8,8 @@ import { Component, Input } from '@angular/core';
 export class LayoutBuilderComponent {
 
   @Input() layout: any;
+
+  @ContentChild(TemplateRef) template;
 
   constructor() {
   }

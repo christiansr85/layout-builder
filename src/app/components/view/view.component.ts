@@ -15,16 +15,22 @@ export class ViewComponent {
           columns: [
             {
               widget: {
+                id: '1',
+                type: 'Indicator',
                 label: 'widget 1'
               }
             },
             {
               widget: {
+                id: '2',
+                type: 'Indicator',
                 label: 'widget 2'
               }
             },
             {
               widget: {
+                id: '3',
+                type: 'Indicator',
                 label: 'widget 3'
               }
             }
@@ -34,6 +40,8 @@ export class ViewComponent {
           columns: [
             {
               widget: {
+                id: '4',
+                type: 'Big',
                 label: 'widget 4'
               }
             },
@@ -41,16 +49,22 @@ export class ViewComponent {
               rows: [
                 {
                   widget: {
+                    id: '5',
+                    type: 'Indicator',
                     label: 'widget 5'
                   }
                 },
                 {
                   widget: {
+                    id: '6',
+                    type: 'Indicator',
                     label: 'widget 6'
                   }
                 },
                 {
                   widget: {
+                    id: '7',
+                    type: 'Indicator',
                     label: 'widget 7'
                   }
                 }

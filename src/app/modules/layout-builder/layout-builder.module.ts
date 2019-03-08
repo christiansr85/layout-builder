@@ -13,6 +13,9 @@ import { LayoutBuilderComponent } from './layout-builder.component';
   ],
   exports: [
     LayoutBuilderComponent
+  ],
+  entryComponents: [
+    LayoutBuilderComponent
   ]
 })
 export class LayoutBuilderModule { }

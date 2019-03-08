@@ -9,14 +9,7 @@
   </ng-container>
 </div>
 
-
-
-<ng-template #layoutTemplate let-widget="widget">
-  <div class="widget"> test template is {{widget.label}}</div>
-</ng-template>
-
 <ng-template #rows let-rows="rows">
-
   <div class="rows">
     <div *ngFor="let row of rows" class="container-column">
       <ng-container *ngIf="row.rows">
@@ -28,8 +21,7 @@
         </ng-container>
       </ng-container>
       <ng-container *ngIf="row.widget">
-        <ng-container [ngTemplateOutlet]="layoutTemplate" [ngTemplateOutletContext]="{widget: row.widget}">
-        </ng-container>
+        <ng-template [ngTemplateOutlet]="template" [ngTemplateOutletContext]="{item: row.widget}"></ng-template>
       </ng-container>
     </div>
   </div>
@@ -47,8 +39,7 @@
         </ng-container>
       </ng-container>
       <ng-container *ngIf="column.widget">
-        <ng-container [ngTemplateOutlet]="layoutTemplate" [ngTemplateOutletContext]="{widget: column.widget}">
-        </ng-container>
+        <ng-template [ngTemplateOutlet]="template" [ngTemplateOutletContext]="{item: column.widget}"></ng-template>
       </ng-container>
     </div>
   </div>

@@ -1,17 +1,14 @@
 <div class="view">
   <div class="content">
     <layout-builder [layout]="conf">
-      <!-- <div class="test-widget"> test template is {{widget.label}}</div> -->
-      <!-- 
-      <ng-container>
-        <ng-template let-widget="widget">
-          <div class="test-widget"> test template is {{widget.label}}</div>
-        </ng-template>
-      </ng-container> 
-    -->
-
-
+      <ng-template let-item="item">
+        <ng-container *ngIf="item.type === 'Big'">
+            <big></big>
+        </ng-container>
+        <ng-container *ngIf="item.type === 'Indicator'">
+            <indicator></indicator>
+        </ng-container>
+      </ng-template>
     </layout-builder>
   </div>
 </div>
-
