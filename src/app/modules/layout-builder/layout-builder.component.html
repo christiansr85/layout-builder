@@ -1,55 +1,55 @@
-<div>
-	<div *ngIf="conf.rows"
-		 class="test-root">
-		<ng-container *ngTemplateOutlet="rows;context:conf">
-		</ng-container>
-	</div>
+<div class="root">
+  <ng-container *ngIf="layout.rows">
+    <ng-container [ngTemplateOutlet]="rows" [ngTemplateOutletContext]="layout">
+    </ng-container>
+  </ng-container>
+  <ng-container *ngIf="layout.columns">
+    <ng-container [ngTemplateOutlet]="columns" [ngTemplateOutletContext]="layout">
+    </ng-container>
+  </ng-container>
 </div>
 
 
 
-<ng-template #layoutTemplate
-             let-widget="widget">
-    <div class="test-widget"> test template is {{widget.label}}</div>
+<ng-template #layoutTemplate let-widget="widget">
+  <div class="widget"> test template is {{widget.label}}</div>
 </ng-template>
 
-<ng-template #rows
-             let-rows="rows">
+<ng-template #rows let-rows="rows">
 
-    <div class="test-rows">
-        <div *ngFor="let row of rows" class="test-container-column">
-            <ng-container *ngIf="row && row.rows">
-                <ng-container *ngTemplateOutlet="rows;context:{rows: row.rows, columns: row.columns, widget: row.widget}">
-                </ng-container>
-            </ng-container>
-            <ng-container *ngIf="row && row.columns">
-                <ng-container *ngTemplateOutlet="columns;context:{rows: row.rows, columns: row.columns, widget: row.widget}">
-                </ng-container>
-            </ng-container>
-            <ng-container *ngIf="row && row.widget">
-                <ng-container *ngTemplateOutlet="layoutTemplate;context:{widget: row.widget}">
-                </ng-container>
-            </ng-container>
-        </div>
+  <div class="rows">
+    <div *ngFor="let row of rows" class="container-column">
+      <ng-container *ngIf="row.rows">
+        <ng-container [ngTemplateOutlet]="rows" [ngTemplateOutletContext]="{rows: row.rows}">
+        </ng-container>
+      </ng-container>
+      <ng-container *ngIf="row.columns">
+        <ng-container [ngTemplateOutlet]="columns" [ngTemplateOutletContext]="{columns: row.columns}">
+        </ng-container>
+      </ng-container>
+      <ng-container *ngIf="row.widget">
+        <ng-container [ngTemplateOutlet]="layoutTemplate" [ngTemplateOutletContext]="{widget: row.widget}">
+        </ng-container>
+      </ng-container>
     </div>
+  </div>
 </ng-template>
 
-<ng-template #columns
-             let-columns="columns">
-    <div class="test-columns">
-        <div *ngFor="let column of columns" class="test-container-row">
-            <ng-container *ngIf="column && column.rows">
-                <ng-container *ngTemplateOutlet="rows;context:{rows: column.rows, columns: column.columns, widget: column.widget}">
-                </ng-container>
-            </ng-container>
-            <ng-container *ngIf="column && column.columns">
-                <ng-container *ngTemplateOutlet="columns;context:{rows: column.rows, columns: column.columns, widget: column.widget}">
-                </ng-container>
-            </ng-container>
-            <ng-container *ngIf="column && column.widget">
-                <ng-container *ngTemplateOutlet="layoutTemplate;context:{widget: column.widget}">
-                </ng-container>
-            </ng-container>
-        </div>
+<ng-template #columns let-columns="columns">
+  <div class="columns">
+    <div *ngFor="let column of columns" class="container-row">
+      <ng-container *ngIf="column.rows">
+        <ng-container [ngTemplateOutlet]="rows" [ngTemplateOutletContext]="{rows: column.rows}">
+        </ng-container>
+      </ng-container>
+      <ng-container *ngIf="column.columns">
+        <ng-container [ngTemplateOutlet]="columns" [ngTemplateOutletContext]="{columns: column.columns}">
+        </ng-container>
+      </ng-container>
+      <ng-container *ngIf="column.widget">
+        <ng-container [ngTemplateOutlet]="layoutTemplate" [ngTemplateOutletContext]="{widget: column.widget}">
+        </ng-container>
+      </ng-container>
     </div>
+  </div>
 </ng-template>

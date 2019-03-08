@@ -1,5 +1,17 @@
 <div class="view">
-    <div class="content">
-        <layout-builder></layout-builder>
-    </div>
+  <div class="content">
+    <layout-builder [layout]="conf">
+      <!-- <div class="test-widget"> test template is {{widget.label}}</div> -->
+      <!-- 
+      <ng-container>
+        <ng-template let-widget="widget">
+          <div class="test-widget"> test template is {{widget.label}}</div>
+        </ng-template>
+      </ng-container> 
+    -->
+
+
+    </layout-builder>
+  </div>
 </div>
+

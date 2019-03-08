@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'layout-builder',
@@ -6,59 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./layout-builder.component.scss']
 })
 export class LayoutBuilderComponent {
-  conf: any;
+
+  @Input() layout: any;
 
   constructor() {
-    this.conf = {
-      rows: [
-        {
-          columns: [
-            {
-              widget: {
-                label: 'widget 1'
-              }
-            },
-            {
-              widget: {
-                label: 'widget 2'
-              }
-            },
-            {
-              widget: {
-                label: 'widget 3'
-              }
-            }
-          ]
-        },
-        {
-          columns: [
-            {
-              widget: {
-                label: 'widget 4'
-              }
-            },
-            {
-              rows: [
-                {
-                  widget: {
-                    label: 'widget 5'
-                  }
-                },
-                {
-                  widget: {
-                    label: 'widget 6'
-                  }
-                },
-                {
-                  widget: {
-                    label: 'widget 7'
-                  }
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    };
   }
 }

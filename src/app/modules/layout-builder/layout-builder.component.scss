@@ -1,33 +1,35 @@
-.test-widget {
-    width: 300px;
-    min-height: 100px;
-    border: 1px solid;
-    background-color: rgba(0, 0, 0, 0.2);
-    display: flex;
+.widget {
     align-items: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid;
+    display: flex;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
     justify-content: center;
+    min-height: 100px;
+    width: 300px;    
 }
 
-.test-root {
+.root {
     display: flex;
 }
 
-.test-rows {
+.rows {
     display: flex;
     flex-direction: column;
 }
 
-.test-columns {
+.columns {
     display: flex;
     flex-direction: row;
 }
 
-.test-container-row {
+.container-row {
     display: flex;
     margin-right: 12px;
 }
 
-.test-container-column {
+.container-column {
     display: flex;
     margin-bottom: 12px;
 }
