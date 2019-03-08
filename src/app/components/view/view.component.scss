@@ -1,0 +1,15 @@
+.view {
+    background-color: rgba(0, 0, 0, .1);
+    display: block;
+    height: 100%;
+    width: 100%;
+
+    .content {
+        background-color: #FFF;
+        box-sizing: border-box;
+        margin: 0 auto;
+        height: 100%;
+        padding: 16px;
+        width: 80%;
+    }
+}

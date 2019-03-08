@@ -1,0 +1,33 @@
+.test-widget {
+    width: 300px;
+    min-height: 100px;
+    border: 1px solid;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.test-root {
+    display: flex;
+}
+
+.test-rows {
+    display: flex;
+    flex-direction: column;
+}
+
+.test-columns {
+    display: flex;
+    flex-direction: row;
+}
+
+.test-container-row {
+    display: flex;
+    margin-right: 12px;
+}
+
+.test-container-column {
+    display: flex;
+    margin-bottom: 12px;
+}

@@ -1,0 +1,55 @@
+<div>
+	<div *ngIf="conf.rows"
+		 class="test-root">
+		<ng-container *ngTemplateOutlet="rows;context:conf">
+		</ng-container>
+	</div>
+</div>
+
+
+
+<ng-template #layoutTemplate
+             let-widget="widget">
+    <div class="test-widget"> test template is {{widget.label}}</div>
+</ng-template>
+
+<ng-template #rows
+             let-rows="rows">
+
+    <div class="test-rows">
+        <div *ngFor="let row of rows" class="test-container-column">
+            <ng-container *ngIf="row && row.rows">
+                <ng-container *ngTemplateOutlet="rows;context:{rows: row.rows, columns: row.columns, widget: row.widget}">
+                </ng-container>
+            </ng-container>
+            <ng-container *ngIf="row && row.columns">
+                <ng-container *ngTemplateOutlet="columns;context:{rows: row.rows, columns: row.columns, widget: row.widget}">
+                </ng-container>
+            </ng-container>
+            <ng-container *ngIf="row && row.widget">
+                <ng-container *ngTemplateOutlet="layoutTemplate;context:{widget: row.widget}">
+                </ng-container>
+            </ng-container>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #columns
+             let-columns="columns">
+    <div class="test-columns">
+        <div *ngFor="let column of columns" class="test-container-row">
+            <ng-container *ngIf="column && column.rows">
+                <ng-container *ngTemplateOutlet="rows;context:{rows: column.rows, columns: column.columns, widget: column.widget}">
+                </ng-container>
+            </ng-container>
+            <ng-container *ngIf="column && column.columns">
+                <ng-container *ngTemplateOutlet="columns;context:{rows: column.rows, columns: column.columns, widget: column.widget}">
+                </ng-container>
+            </ng-container>
+            <ng-container *ngIf="column && column.widget">
+                <ng-container *ngTemplateOutlet="layoutTemplate;context:{widget: column.widget}">
+                </ng-container>
+            </ng-container>
+        </div>
+    </div>
+</ng-template>
