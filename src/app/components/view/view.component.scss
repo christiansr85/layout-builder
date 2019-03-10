@@ -1,15 +1,47 @@
-.view {
-    background-color: rgba(0, 0, 0, .1);
-    display: block;
-    height: 100%;
-    width: 100%;
+$card-bg-color: #FFF;
 
-    .content {
-        background-color: #FFF;
-        box-sizing: border-box;
-        margin: 0 auto;
-        height: 100%;
-        padding: 16px;
-        width: 80%;
+.view {
+  background-color: rgba(0, 0, 0, .1);
+  display: block;
+  height: 100%;
+  width: 100%;
+
+  .content {
+    // background-color: #FFF;
+    box-sizing: border-box;
+    margin: 0 auto;
+    height: 100%;
+    padding: 16px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .operations {
+    background-color: $card-bg-color;
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    margin-bottom: 16px;
+    padding: 16px;
+
+    button {
+        margin-right: 16px;
     }
+  }
+
+  .layout-container {
+    background-color: $card-bg-color;
+    box-sizing: content-box;
+    flex: 1;
+    padding: 16px;
+
+    .layout {
+      display: flex;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
 }

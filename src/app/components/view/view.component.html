@@ -1,14 +1,27 @@
 <div class="view">
   <div class="content">
-    <layout-builder [layout]="conf">
-      <ng-template let-item="item">
-        <ng-container *ngIf="item.type === 'Big'">
-            <big></big>
-        </ng-container>
-        <ng-container *ngIf="item.type === 'Indicator'">
-            <indicator></indicator>
-        </ng-container>
-      </ng-template>
-    </layout-builder>
+    <div class="operations">
+      <button class="btn" (click)="addRow()">
+        ADD ROW
+      </button>
+      <button class="btn" (click)="addColumn()">
+        ADD COLUMN
+      </button>
+      <button class="btn" (click)="reset()">
+        RESET
+      </button>
+    </div>
+    <div class="layout-container">
+      <layout-builder [layout]="conf" class="layout">
+        <!-- <ng-template let-item="item">
+          <ng-container *ngIf="item.type === 'Big'">
+              <big></big>
+          </ng-container>
+          <ng-container *ngIf="item.type === 'Indicator'">
+              <indicator></indicator>
+          </ng-container>
+        </ng-template> -->
+      </layout-builder>
+    </div>
   </div>
 </div>

@@ -6,7 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./view.component.scss']
 })
 export class ViewComponent {
-  conf: any;
+  conf: any = {};
+  backup: any = {};
+  dirty = false;
 
   constructor() {
     this.conf = {
@@ -74,5 +76,32 @@ export class ViewComponent {
         }
       ]
     };
+    this.backup = this.createBackup(this.conf);
+  }
+
+  addRow(): void {
+    this.dirty = true;
+    this.conf.rows = this.conf.rows || [];
+    this.conf.rows.push({});
+  }
+
+  addColumn(): void {
+    this.dirty = true;
+    this.conf.columns = this.conf.columns || [];
+    this.conf.columns.push({});
+  }
+
+  reset(): void {
+    this.conf = {};
+    this.conf = this.deepCopy(this.backup);
+  }
+
+  private createBackup(source): void {
+    return this.deepCopy(source);
+  }
+
+  private deepCopy(source): void {
+    // Object.assign(target, source);
+    return JSON.parse(JSON.stringify(source));
   }
 }
