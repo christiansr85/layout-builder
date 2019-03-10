@@ -1,15 +1,23 @@
 <div class="view">
   <div class="content">
     <div class="operations">
-      <button class="btn" (click)="addRow()">
-        ADD ROW
-      </button>
-      <button class="btn" (click)="addColumn()">
-        ADD COLUMN
-      </button>
-      <button class="btn" (click)="reset()">
-        RESET
-      </button>
+      <div>
+        <button class="btn" (click)="addRow()">
+          ADD ROW
+        </button>
+        <button class="btn" (click)="addColumn()">
+          ADD COLUMN
+        </button>
+        <button class="btn" (click)="reset()">
+          RESET
+        </button>
+      </div>
+      <div>
+        <a class="btn" [href]="downloadJsonHref" download="layout.json" (click)="downloadJSON()">
+          DOWNLOAD JSON
+        </a>
+      </div>
+
     </div>
     <div class="layout-container">
       <layout-builder [layout]="conf" class="layout">

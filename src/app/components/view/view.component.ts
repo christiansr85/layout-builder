@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-view',
@@ -9,8 +10,9 @@ export class ViewComponent {
   conf: any = {};
   backup: any = {};
   dirty = false;
+  downloadJsonHref: any;
 
-  constructor() {
+  constructor(private sanitizer: DomSanitizer) {
     this.conf = {
       rows: [
         {
@@ -89,6 +91,14 @@ export class ViewComponent {
     this.dirty = true;
     this.conf.columns = this.conf.columns || [];
     this.conf.columns.push({});
+  }
+
+  downloadJSON(): void {
+    const json = JSON.stringify(this.conf);
+    const uri = this.sanitizer.bypassSecurityTrustUrl(
+      'data:text/json;charset=UTF-8,' + encodeURIComponent(json)
+    );
+    this.downloadJsonHref = uri;
   }
 
   reset(): void {
